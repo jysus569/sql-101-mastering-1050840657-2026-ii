@@ -7,7 +7,7 @@
 -- RUN IN POSTGRES - POSTGRES
 
 -- 01. Create user
-CREATE USER cc_admin WITH PASSWORD '*';
+CREATE USER cc_admin WITH PASSWORD 'coffe2026**';
 
 -- 02. Create database (with ENCODING= 'UTF8', TEMPLATE=Template0, OWNER: cc_admin)
 -- NOTE: on Windows replace the locale with 'Spanish_Colombia.1252'
