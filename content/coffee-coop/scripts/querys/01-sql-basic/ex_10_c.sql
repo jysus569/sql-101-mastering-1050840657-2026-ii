@@ -58,9 +58,10 @@ WHERE T1.settled_at >= '2026-09-30'
 */
 
 -- Explicación:
--- Los valores coinciden porque ambos utilizan la misma operación
--- multiplicar el peso neto por el precio aplicado por kilogramo
--- gross_amount es generado automáticamente por PostgreSQL
--- mientras que check_gross_cop se calcula directamente en la consulta SQL
--- Ambos valores coinciden porque utilizan los mismos datos y la misma operación matemática
--- check_gross_cop muestra 4 decimales y gross_amount 2, pero el valor es el mismo: solo cambian los ceros finales
+-- Las dos columnas coinciden porque en el fondo son la misma cuenta: peso neto por precio
+-- aplicado por kilo. La diferencia es quién la hace. gross_amount es una columna GENERATED, o sea
+-- que PostgreSQL la calcula sola y la guarda cuando se registra la liquidación, mientras que
+-- check_gross_cop la calculé yo en el SELECT con esas mismas dos columnas. Por eso tiene que dar
+-- lo mismo. Lo único que se ve distinto es que check_gross_cop sale con 4 decimales y
+-- gross_amount con 2, pero al comparar las 37 filas el valor es igual y solo cambian los ceros
+-- del final.
